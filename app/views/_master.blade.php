@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	{{HTML::style('stylesheets/style.css');}}
-	<title>@yield('title')</title>
+	<title>2List</title>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 
 @yield('head')
@@ -11,7 +11,7 @@
 <body>
 	<div id = "maincontainer">
 		<div id = "titlebar">
-
+			<h1>2List</h1>
 		</div>
 		<div id = "sidebar">
 			<a href = '/'>Home</a><br>

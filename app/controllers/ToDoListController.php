@@ -95,6 +95,7 @@ class ToDoListController extends BaseController{
 			->first();
 
 		$list->description = Input::get('description');
+		$list->type = Input::get('type');
 
 		$list->save();
 
@@ -111,6 +112,7 @@ class ToDoListController extends BaseController{
 		
 		//var_dump($lists);
 		$text = "";
+		/*
 		foreach ($lists as $list)
 		{
     		$text = $text."<a href = '/todolist/delete/".$list->name."'>".$list->name;
@@ -118,6 +120,25 @@ class ToDoListController extends BaseController{
     		$text = $text.$list->description;
     		$text = $text."<br>";
 		}	
+		*/
+
+		foreach ($lists as $list)
+		{
+			$description = $list->description;
+			$descriptionarray = explode(";",$description);
+			$type = $list->type;
+			//either ul or ol
+			$text = $text."<a href = '/todolist/delete/".$list->name."'>".$list->name;
+			$text = $text."</a><br>";
+    		$text = $text."<".$type.">";
+			foreach ($descriptionarray as $desc){
+				if (!(ctype_space($desc) || $desc == "")){
+					$text = $text."<li>".$desc."</li>";
+    			}
+    		}
+    		$text = $text."</".$type.">";
+		}	
+
 
 		return View::make('todolist-delete',array('text'=>$text));
 	}

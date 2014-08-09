@@ -16,6 +16,8 @@ try{
 		echo Form::open(array('url'=>'/todolist/edit/'.$listname,'method'=>'POST'));
 		echo Form::textarea('description',$listdescription);
 		echo "<br>";
+		echo Form::select('type',array('ol' => 'numbered',
+								'ul' => 'bullet-points'));
 		echo Form::submit('Edit');
 		echo Form::close();
 	} catch (Exception $e){
