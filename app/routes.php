@@ -59,7 +59,7 @@ Route::post('/todolist/edit/{listname}','ToDoListController@postEditList');
 Route::get('/todolist/delete','ToDoListController@getDelete');
 Route::get('/todolist/delete/{listname}','ToDoListController@getDeleteList');
 Route::post('/todolist/delete/{listname}','ToDoListController@postDeleteList');
-/*
+
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -104,4 +104,3 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
-*/
