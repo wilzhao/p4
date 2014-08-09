@@ -10,6 +10,7 @@ class ToDoListController extends BaseController{
 		}
 	}
 
+
 	public function postCreate(){
 		$todolist = new ToDolist;
 		$todolist->name = Input::get('name');
@@ -18,25 +19,19 @@ class ToDoListController extends BaseController{
 
 		$todolist->user_id = Auth::user()->id;
 		
-
-
 		$todolist->save();
 
 		$text = 'Your new list has been created';
 
 		return View::make('result',array('text'=>$text));
-		//} catch (Exception $e){
-			//return Redirect::to('/todolist/create')->withInput();
-		//}
 	}
 
 	public function getView(){	
 		
 		$id = Auth::user()->id;
-		//var_dump($id);
+
 		$lists = ToDolist::where('user_id','=',$id)->get();
 		
-		//var_dump($lists);
 		$text = "";
 		foreach ($lists as $list)
 		{
@@ -110,17 +105,7 @@ class ToDoListController extends BaseController{
 		//var_dump($id);
 		$lists = ToDolist::where('user_id','=',$id)->get();
 		
-		//var_dump($lists);
 		$text = "";
-		/*
-		foreach ($lists as $list)
-		{
-    		$text = $text."<a href = '/todolist/delete/".$list->name."'>".$list->name;
-    		$text =	$text."</a><br>";
-    		$text = $text.$list->description;
-    		$text = $text."<br>";
-		}	
-		*/
 
 		foreach ($lists as $list)
 		{
@@ -147,11 +132,6 @@ class ToDoListController extends BaseController{
 	public function getDeleteList($listname){
 		$id = Auth::user()->id;
 
-		//$list = ToDolist::where('user_id','=',$id)
-			//->where('name','=',$listname)
-			//->first();
-
-		//$listdescription = $list->description;
 		return View::make('todolist-delete',array('listname'=>$listname));
 	}
 
