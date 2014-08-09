@@ -14,9 +14,12 @@ class ToDoListController extends BaseController{
 		$todolist = new ToDolist;
 		$todolist->name = Input::get('name');
 		$todolist->description = Input::get('description');
+		$todolist->type = Input::get('type');
 
 		$todolist->user_id = Auth::user()->id;
-		//try{
+		
+
+
 		$todolist->save();
 
 		$text = 'Your new list has been created';
@@ -37,7 +40,18 @@ class ToDoListController extends BaseController{
 		$text = "";
 		foreach ($lists as $list)
 		{
-    		$text = $text.$list->name."<br>".$list->description."<br><br>";	
+			$description = $list->description;
+			$descriptionarray = explode(";",$description);
+			$type = $list->type;
+			//either ul or ol
+			$text = $text.$list->name."<br>";
+    		$text = $text."<".$type.">";
+			foreach ($descriptionarray as $desc){
+				if (!(ctype_space($desc) || $desc == "")){
+					$text = $text."<li>".$desc."</li>";
+    			}
+    		}
+    		$text = $text."</".$type.">";
 		}	
 
 		return View::make('todolist-view',array('text'=>$text));
