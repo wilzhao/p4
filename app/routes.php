@@ -29,7 +29,7 @@ Route::get('mysql-test', function() {
     print_r($results);
 
 });
-
+/*
 Route::get('practice-creating',function(){
 	$user = new User();
 
@@ -46,7 +46,7 @@ Route::get('practice-creating',function(){
 	$todolist->save();
 	return 'A new user has been added...';
 });
-
+*/
 Route::get('/todolist/create','ToDoListController@getCreate');
 Route::post('/todolist/create','ToDoListController@postCreate');
 

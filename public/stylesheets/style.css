@@ -1,0 +1,47 @@
+html{
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: "Ubuntu",sans-serif;
+	font-size:19px;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+h1{
+	text-align: center;
+}
+
+#maincontainer{
+	height:100%;
+	width:80%;
+	margin: 0 auto;
+}
+
+#titlebar h1{
+	margin:0 auto;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#sidebar{
+	width:18%;
+	padding-left:1%;
+	padding-right:1%;
+	float:left;
+	display:inline;
+	height:100%;
+}
+
+#content{
+	height:100%;
+	width:76%;
+	padding:0% 2% 0% 2%;
+	float:right;
+	display:inline;
+	margin: 0 auto;
+}

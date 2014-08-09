@@ -17,7 +17,11 @@ class ToDoListController extends BaseController{
 
 		$todolist->user_id = Auth::user()->id;
 		//try{
-			$todolist->save();
+		$todolist->save();
+
+		$text = 'Your new list has been created';
+
+		return View::make('result',array('text'=>$text));
 		//} catch (Exception $e){
 			//return Redirect::to('/todolist/create')->withInput();
 		//}
@@ -80,7 +84,9 @@ class ToDoListController extends BaseController{
 
 		$list->save();
 
-		return "One of your to-do lists have been updated";
+		$text = "One of your to-do lists have been updated";
+
+		return View::make('result',array('text'=>$text));
 	}
 
 	//generates the page
@@ -122,6 +128,7 @@ class ToDoListController extends BaseController{
 			->first();
 
 		$list->delete();
-		return "One of your lists has been deleted";
+		$text = "One of your lists has been deleted";
+		return View::make('result',array('text'=>$text));
 	}
 }
